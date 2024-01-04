@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 //import Books from "./Books";
+// sample comment for testing brach
 
 function Slider() {
   const slides = [
