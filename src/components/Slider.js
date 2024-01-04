@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 //import Books from "./Books";
-// sample comment for testing brach
 
 function Slider() {
   const slides = [
@@ -15,10 +14,10 @@ function Slider() {
       url: "./images/book_reading_3.jpg",
     },
     {
-      url: "./images/book_reading_2.jpg",
+      url: "./images/book_reading_4.jpg",
     },
     {
-      url: "./images/book_reading_2.jpg",
+      url: "./images/book_reading_5.jpg",
     },
   ];
 
@@ -69,7 +68,7 @@ function Slider() {
           {slides.map((_, index) => (
             <button
               key={index}
-              className={`w-4 h-4 rounded-full ${
+              className={`w-3 h-3 rounded-full ${
                 index === currentIndex ? "bg-black " : "bg-gray-300"
               }`}
               onClick={() => goToSlide(index)}
