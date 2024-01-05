@@ -33,7 +33,9 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 }
     // check if the item is already in the cart
+    console.log(id);
     const cartItem = cart.find((item) => {
+      console.log(item.id);
       return item.id === id;
     });
     //if cart item is already in the cart
@@ -48,6 +50,7 @@ const CartProvider = ({ children }) => {
       setCart(newCart);
     } else {
       setCart([...cart, newItem]);
+      console.log("new item added");
     }
   };
   

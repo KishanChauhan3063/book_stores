@@ -1,10 +1,4 @@
 import React from "react";
-import visaIcon from "../img/visa.svg";
-import mastercardIcon from "../img/mastercard.svg";
-import creditcardIcon from "../img/atm-card.png";
-import simCardChipDesign from "../img/sim-card-chip.svg";
-import cardBackgroundImage from "../img/card_bg.svg";
-//import { Link } from "react-router-dom";
 
 const Checkout = () => {
   return (
@@ -12,7 +6,7 @@ const Checkout = () => {
       <div
         className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-4xl py-2 px-8 rounded-custom shadow-md relative border-solid border-2 border-black rounded-lg"
         style={{
-          backgroundImage: `url(${cardBackgroundImage})`,
+          backgroundImage: `url("./images/card_bg.svg")`,
           backgroundSize: "cover", // Adjust the background size as needed
           backgroundPosition: "center", // Adjust the background position as needed
         }}
@@ -20,7 +14,11 @@ const Checkout = () => {
         {/* Card Logo */}
         <div className="mb-4 flex justify-center">
           {/* Use your actual card logo URL here */}
-          <img src={creditcardIcon} alt="Card Logo" className="w-16 h-16" />
+          <img
+            src="./images/CardLogo.png"
+            alt="Card Logo"
+            className="w-16 h-16"
+          />
         </div>
 
         {/* Card Number */}
@@ -32,7 +30,7 @@ const Checkout = () => {
         <div className="mb-5 w-96 text-lg text-white">
           Card Holder
           <img
-            src={simCardChipDesign}
+            src="./images/sim-card-chip.svg"
             alt="SIM Card Chip Logo"
             className="w-20 h-20 absolute top-32 right-9"
           />
@@ -40,10 +38,13 @@ const Checkout = () => {
         </div>
         {/* Card Icons (VISA and MASTERCARD) */}
         <div className="mb-4 flex justify-between">
-          <img src={visaIcon} alt="VISA" className="w-9 h-8" />
-          <img src={mastercardIcon} alt="MASTERCARD" className="w-10 h-8" />
+          <img src="./images/visa.svg" alt="VISA" className="w-9 h-8" />
+          <img
+            src="./images/mastercard.svg"
+            alt="MASTERCARD"
+            className="w-10 h-8"
+          />
         </div>
-
         {/* Expiry Date and CVV */}
         <div className="flex flex-col sm:flex-row justify-between">
           <div className="mb-2 sm:mb-0 text-sm text-white">
@@ -58,11 +59,9 @@ const Checkout = () => {
       </div>
 
       {/* <Link to="./Slider"> */}
-        <div className="mt-4">
-          <button className="bg-black text-white py-2 px-4 rounded-md">
-            Go
-          </button>
-        </div>
+      <div className="mt-4">
+        <button className="bg-black text-white py-2 px-4 rounded-md">Go</button>
+      </div>
       {/* </Link> */}
     </div>
   );

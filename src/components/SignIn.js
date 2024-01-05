@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Logo from "../img/book.gif";
-import EyeIcon from "../img/eye-icon.svg";
-import CrossedEyeIcon from "../img/crossed-eye-icon.svg";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +14,7 @@ const SignIn = () => {
             href="#"
             className="flex items-center py-0 mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <img className="w-8 h-8 mr-2" src={Logo} alt="logo" />
+            <img className="w-8 h-8 mr-2" src="./images/book.gif" alt="logo" />
             BookWala
           </a>
           <div className="w-full bg-white rounded-lg shadow-2xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-red-800 dark:border-red-700 border border-red-500">
@@ -66,14 +63,14 @@ const SignIn = () => {
                       {showPassword ? (
                         // Eye icon when password is shown
                         <img
-                          src={CrossedEyeIcon}
+                          src="./images/crossed-eye-icon.svg"
                           alt="Hide Password"
                           className="w-5 h-5 text-gray-400"
                         />
                       ) : (
                         // Crossed-eye icon when password is hidden
                         <img
-                          src={EyeIcon}
+                          src="./images/eye-icon.svg"
                           alt="Show Password"
                           className="w-5 h-5 text-gray-400"
                         />
