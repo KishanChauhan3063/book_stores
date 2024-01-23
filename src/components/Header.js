@@ -55,7 +55,7 @@ const Header = () => {
           >
             Logout
           </button>
-          <a href="/SignIn" className="text-gray-600 hover:text-black">
+          <a href="/SignUp" className="text-gray-600 hover:text-black">
             Signup
           </a>
           <div

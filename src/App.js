@@ -13,6 +13,7 @@ import Books from './components/Books';
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Checkout from './components/Checkout';
+import { AuthContextProvider } from './contexts/AuthContext';
 
 const App = () => {
   return (
@@ -30,7 +31,14 @@ const App = () => {
             }
           />
           <Route path="/SignIn" element={<SignIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route
+            path="/SignUp"
+            element={
+              <AuthContextProvider>
+                <SignUp />
+              </AuthContextProvider>
+            }
+          />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/home" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetails />} />
