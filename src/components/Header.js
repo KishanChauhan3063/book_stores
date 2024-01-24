@@ -25,7 +25,7 @@ const Header = () => {
 
   const handleLogout = () => {
     console.log("Logout clicked");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -49,12 +49,15 @@ const Header = () => {
           <Link to="/" className="text-gray-600 hover:text-black">
             Home
           </Link>
-          <button
+          {/* <button
             onClick={handleLogout}
             className="text-gray-600 hover:text-black"
           >
             Logout
-          </button>
+          </button> */}
+          <a href="/" className="text-gray-600 hover:text-black">
+            Logout
+          </a>
           <a href="/SignUp" className="text-gray-600 hover:text-black">
             Signup
           </a>

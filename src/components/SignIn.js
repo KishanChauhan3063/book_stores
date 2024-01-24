@@ -1,6 +1,25 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../contexts/AuthContext";
 
 const SignIn = () => {
+
+const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { user, logIn } = UserAuth();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await logIn(email, password);
+      navigate("/Home");
+    } catch (error) {
+      console.log(error);
+      setError("Invalid e-mail or password");
+    }
+  };
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -22,7 +41,11 @@ const SignIn = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-black">
                 Sign In to your account 🔓
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 md:space-y-6"
+                action="#"
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -30,7 +53,11 @@ const SignIn = () => {
                   >
                     Your email
                   </label>
+                  {error ? (
+                    <p className="text-[red] font-bold text-xl">{error}</p>
+                  ) : null}
                   <input
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     name="email"
                     id="email"
@@ -46,8 +73,13 @@ const SignIn = () => {
                   >
                     Password
                   </label>
+
+                  {error ? (
+                    <p className="text-[red] font-bold text-xl">{error}</p>
+                  ) : null}
                   <div className="relative">
                     <input
+                      onChange={(e) => setPassword(e.target.value)}
                       type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
@@ -91,10 +123,7 @@ const SignIn = () => {
                       />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="remember"
-                        className="text-black"
-                      >
+                      <label htmlFor="remember" className="text-black">
                         Remember me
                       </label>
                     </div>

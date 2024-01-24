@@ -30,7 +30,14 @@ const App = () => {
               </React.Fragment>
             }
           />
-          <Route path="/SignIn" element={<SignIn />} />
+          <Route
+            path="/SignIn"
+            element={
+              <AuthContextProvider>
+                <SignIn />
+              </AuthContextProvider>
+            }
+          />
           <Route
             path="/SignUp"
             element={

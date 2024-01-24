@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { UserAuth } from "../contexts/AuthContext";
-//import {useNavigate} from "react-router-dom" 
+import {useNavigate} from "react-router-dom" 
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { user, signUp } = UserAuth();
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await signUp(email, password);
-     // navigate("/home");
+      navigate("/Home");
     } catch (error) {
       console.log(error);
     }
@@ -138,7 +138,7 @@ const SignUp = () => {
                   Sign Up
                 </button>
                 <p className="text-sm font-light text-black">
-                  Don’t have an account yet?{" "}
+                  Already have an account?{" "}
                   <a
                     href="SignIn"
                     className="font-medium text-primary-600 hover:underline text-black"
