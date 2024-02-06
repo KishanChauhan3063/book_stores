@@ -4,7 +4,6 @@ import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { BsBag } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import Logo from "../img/book.gif";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -26,7 +25,7 @@ const Header = () => {
 
   const handleLogout = () => {
     console.log("Logout clicked");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -41,7 +40,7 @@ const Header = () => {
         <div className="flex items-center space-x-5">
           <Link to={"/"}>
             <div>
-              <img className="" src={Logo} alt="" />
+              <img className="" src="./images/book.gif" alt="" />
             </div>
           </Link>
           <h2 className="sm:text-3xl">Book Wala</h2>
@@ -50,13 +49,16 @@ const Header = () => {
           <Link to="/" className="text-gray-600 hover:text-black">
             Home
           </Link>
-          <button
+          {/* <button
             onClick={handleLogout}
             className="text-gray-600 hover:text-black"
           >
             Logout
-          </button>
-          <a href="/SignIn" className="text-gray-600 hover:text-black">
+          </button> */}
+          <a href="/" className="text-gray-600 hover:text-black">
+            Logout
+          </a>
+          <a href="/SignUp" className="text-gray-600 hover:text-black">
             Signup
           </a>
           <div

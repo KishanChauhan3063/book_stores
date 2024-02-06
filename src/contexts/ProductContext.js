@@ -6,14 +6,14 @@ const ProductProvider = ({ children }) => {
   //products state
   const [products, setProducts] = useState([]);
   const [books, setBooks] = useState([]);
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState([]);
 
   //RapidAPI
     const url = "https://hapi-books.p.rapidapi.com/nominees/romance/2020";
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "9e18504d3emsh96cefe2385ea264p1c2072jsnfdbf45026d48",
+        "X-RapidAPI-Key": "3780f07802mshcb95327f0791cadp17c776jsn1cae2ffdcd6e",
         "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
       },
     };
@@ -38,8 +38,6 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     if (books.length > 0 && products.length > 0) {
       const finalData = products.map((product, index) => {
-        console.log("product:category ", product.category);
-            console.log("books[index]: ", books[index].author);
         return {
           ...product,
           id: books[index].book_id,
@@ -51,8 +49,7 @@ const ProductProvider = ({ children }) => {
        
        );
       
-       setdata(finalData)
-       console.log('finalData: ', finalData);
+      setData(finalData);
   } 
   }, [books, products]);
   

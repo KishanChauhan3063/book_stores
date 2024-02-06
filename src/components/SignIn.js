@@ -1,9 +1,25 @@
 import React, { useState } from "react";
-import Logo from "../img/book.gif";
-import EyeIcon from "../img/eye-icon.svg";
-import CrossedEyeIcon from "../img/crossed-eye-icon.svg";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../contexts/AuthContext";
 
 const SignIn = () => {
+
+const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { user, logIn } = UserAuth();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await logIn(email, password);
+      navigate("/Home");
+    } catch (error) {
+      console.log(error);
+      setError("Invalid e-mail or password");
+    }
+  };
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -15,29 +31,37 @@ const SignIn = () => {
         <div className="flex flex-col items-center justify-center px-3 py-12 mx-auto md:h-screen lg:py-0">
           <a
             href="#"
-            className="flex items-center py-0 mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
+            className="flex items-center py-0 mb-5 text-2xl font-semibold dark:text-black"
           >
-            <img className="w-8 h-8 mr-2" src={Logo} alt="logo" />
+            <img className="w-8 h-8 mr-2" src="./images/book.gif" alt="logo" />
             BookWala
           </a>
-          <div className="w-full bg-white rounded-lg shadow-2xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-red-800 dark:border-red-700 border border-red-500">
+          <div className="w-full bg-white rounded-lg shadow-2xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:border-red-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl dark:text-black">
                 Sign In to your account 🔓
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 md:space-y-6"
+                action="#"
+              >
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     Your email
                   </label>
+                  {error ? (
+                    <p className="text-[red] font-bold text-xl">{error}</p>
+                  ) : null}
                   <input
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                     placeholder="name@gmail.com"
                     required
                   />
@@ -45,17 +69,22 @@ const SignIn = () => {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
                     Password
                   </label>
+
+                  {error ? (
+                    <p className="text-[red] font-bold text-xl">{error}</p>
+                  ) : null}
                   <div className="relative">
                     <input
+                      onChange={(e) => setPassword(e.target.value)}
                       type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
                       placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                       required
                     />
                     <button
@@ -66,16 +95,16 @@ const SignIn = () => {
                       {showPassword ? (
                         // Eye icon when password is shown
                         <img
-                          src={CrossedEyeIcon}
+                          src="./images/crossed-eye-icon.svg"
                           alt="Hide Password"
-                          className="w-5 h-5 text-gray-400"
+                          className="w-5 h-5"
                         />
                       ) : (
                         // Crossed-eye icon when password is hidden
                         <img
-                          src={EyeIcon}
+                          src="./images/eye-icon.svg"
                           alt="Show Password"
-                          className="w-5 h-5 text-gray-400"
+                          className="w-5 h-5"
                         />
                       )}
                     </button>
@@ -94,10 +123,7 @@ const SignIn = () => {
                       />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
-                      >
+                      <label htmlFor="remember" className="text-black">
                         Remember me
                       </label>
                     </div>
@@ -115,11 +141,11 @@ const SignIn = () => {
                 >
                   Sign In
                 </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <p className="text-sm font-light text-black">
                   Don’t have an account yet?{" "}
                   <a
                     href="SignUp"
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    className="font-medium text-primary-600 hover:underline text-black"
                   >
                     Sign up
                   </a>

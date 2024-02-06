@@ -44,12 +44,24 @@ const Footer = () => {
      <div className="flex flex-col max-w-[1400px] px-2 py-4 mx-auto justify-between sm:flex-row text-center text-gray-500">
        <p className="py-4">2022 Experiences, LLC. All rights reserved</p>
        <div className="flex justify-between sm:w-[300px] pt-4 text-2xl">
-         <FaYoutube className="text-red-600 text-4xl" />
-         <FaWhatsapp className="text-green-600 text-4xl" />
-         <FaFacebook className="text-blue-600 text-4xl" />
-         <FaInstagram className="text-pink-600 text-4xl" />
-         <FaTwitter className="text-blue-400 text-4xl" />
-         <FaLinkedin className="text-blue-800 text-4xl" />
+         <a href="https://www.youtube.com/">
+           <FaYoutube className="text-red-600 text-4xl" />
+         </a>
+         <a href="https://www.whatsapp.com/">
+           <FaWhatsapp className="text-green-600 text-4xl" />
+         </a>
+         <a href="https://www.facebook.com/">
+           <FaFacebook className="text-blue-600 text-4xl" />
+         </a>
+         <a href="https://www.instagram.com/">
+           <FaInstagram className="text-pink-600 text-4xl" />
+         </a>
+         <a href="http://www.twitter.com/">
+           <FaTwitter className="text-blue-400 text-4xl" />
+         </a>
+         <a href="https://www.linkedin.com/">
+           <FaLinkedin className="text-blue-800 text-4xl" />
+         </a>
        </div>
      </div>
    </div>

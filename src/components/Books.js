@@ -8,28 +8,28 @@ const Books = () => {
       <div className="grid grid-cols-2 grid-rows-6 h-[80vh]">
         <img
           className="row-span-3 object-cover w-full h-full p-2"
-          src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="/"
+          src="./images/book1.jpeg"
+          alt=""
         />
         <img
           className="row-span-2 object-cover w-full h-full p-2"
-          src="https://images.pexels.com/photos/2067569/pexels-photo-2067569.jpeg"
-          alt="/"
+          src="./images/book2.jpeg"
+          alt=""
         />
         <img
           className="row-span-2 object-cover w-full h-full p-2"
-          src="https://www.your-space.in/wp-content/uploads/2023/07/Bookstore-2048x852.jpg"
-          alt="/"
+          src="./images/book3.jpeg"
+          alt=""
         />
         <img
           className="row-span-3 object-cover w-full h-full p-2"
-          src="https://i0.wp.com/www.printmag.com/wp-content/uploads/2022/06/Screen-Shot-2022-06-23-at-2.10.28-PM.png?fit=1568%2C998&quality=80&ssl=1"
-          alt="/"
+          src="./images/book4.jpeg"
+          alt=""
         />
         <img
           className="row-span-2 object-cover w-full h-full p-2"
-          src="https://img.freepik.com/free-photo/teen-boy-enjoying-reading-near-bookcase_23-2147864159.jpg?w=996&t=st=1703748721~exp=1703749321~hmac=66e9317c29f719cc946334873f1305e44ec52afe0b90f026dd33c07afb835e73"
-          alt="/"
+          src="./images/book5.jpeg"
+          alt=""
         />
       </div>
       {/* Right Side */}
@@ -51,9 +51,11 @@ const Books = () => {
           hub for the community.
         </p>
         <div>
-          <button className="border-black mr-4 hover:shadow-xl border py-2 px-3 rounded-full">
-            Learn More
-          </button>
+          <a href="/">
+            <button className="border-black mr-4 hover:shadow-xl border py-2 px-3 rounded-full">
+              Learn More
+            </button>
+          </a>
           <a href="/SignIn">
             <button className="bg-black text-white border-black hover:shadow-xl py-2 px-5 rounded-full">
               get started
