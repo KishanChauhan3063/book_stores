@@ -13,8 +13,8 @@ const ProductProvider = ({ children }) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "3780f07802mshcb95327f0791cadp17c776jsn1cae2ffdcd6e",
-        "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+      //  "X-RapidAPI-Key": "3780f07802mshcb95327f0791cadp17c776jsn1cae2ffdcd6e",
+       // "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
       },
     };
 
