@@ -22,7 +22,7 @@ const Sidebar = () => {
     >
       <div className="flex items-center justify-between py-6 border-b">
         <div className="uppercase text-sm font-semibold">
-          Shopping Bag ({itemAmount})
+          Shopping Book ({itemAmount})
         </div>
         {/* icon */}
         <div

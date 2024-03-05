@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+    import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
+  const [show, setShow] = useState(false);
   return (
     <div className="flex flex-col items-center justify-center h-screen w-scree">
       <div
@@ -57,12 +60,17 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-
       {/* <Link to="./Slider"> */}
       <div className="mt-4">
-        <button className="bg-black text-white py-2 px-4 rounded-md">Go</button>
+        <button
+          onClick={() => toast.success("Payment Successfully")}
+          className="bg-black text-white py-2 px-4 rounded-md"
+        >
+          Go
+        </button>
       </div>
       {/* </Link> */}
+      <ToastContainer />
     </div>
   );
 };
