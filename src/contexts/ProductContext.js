@@ -14,7 +14,7 @@ const ProductProvider = ({ children }) => {
       method: "GET",
       headers: {
       //  "X-RapidAPI-Key": "3780f07802mshcb95327f0791cadp17c776jsn1cae2ffdcd6e",
-       // "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+      //  "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
       },
     };
 
